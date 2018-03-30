@@ -12,15 +12,15 @@ import java.util.Calendar;
 public class venda extends funcionario {
     private int idvenda;
     private Calendar data;
+    private int id_funcionario;
+    private int id_edicao;
 
-    public venda(int id, String nome, int matricula, String funcao) {
-        super(id, nome, matricula, funcao);
-    }
-
-    public venda(int idvenda, Calendar data, int id, String nome, int matricula, String funcao) {
+    public venda(int idvenda, Calendar data, int id_funcionario, int id_edicao, int id, String nome, int matricula, String funcao) {
         super(id, nome, matricula, funcao);
         this.idvenda = idvenda;
         this.data = data;
+        this.id_funcionario = id_funcionario;
+        this.id_edicao = id_edicao;
     }
 
     public int getIdvenda() {
@@ -39,9 +39,21 @@ public class venda extends funcionario {
         this.data = data;
     }
 
-   
+    public int getId_funcionario() {
+        return id_funcionario;
+    }
 
-    
+    public void setId_funcionario(int id_funcionario) {
+        this.id_funcionario = id_funcionario;
+    }
+
+    public int getId_edicao() {
+        return id_edicao;
+    }
+
+    public void setId_edicao(int id_edicao) {
+        this.id_edicao = id_edicao;
+    }
 
    
 }
