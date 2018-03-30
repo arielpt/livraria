@@ -9,7 +9,7 @@ package livraria;
  *
  * @author ADM
  */
-public class Livro {
+public abstract class Livro {
     private int codigo;
     private int ano;
     private String titulo;
