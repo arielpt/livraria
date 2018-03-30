@@ -9,6 +9,8 @@ package livraria;
  *
  * @author Ariel
  */
-public interface Transaction_Manager {
-    
+public interface TransactionCallback {
+
+    public void execute(Connection connection) throws SQLException;
+
 }
