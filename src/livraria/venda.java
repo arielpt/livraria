@@ -9,19 +9,20 @@ import java.util.Calendar;
  *
  * @author Ariel
  */
-public class venda extends funcionario {
+public class venda{
     private int idvenda;
     private Calendar data;
     private int id_funcionario;
     private int id_edicao;
 
-    public venda(int idvenda, Calendar data, int id_funcionario, int id_edicao, int id, String nome, int matricula, String funcao) {
-        super(id, nome, matricula, funcao);
+    public venda(int idvenda, Calendar data, int id_funcionario, int id_edicao) {
         this.idvenda = idvenda;
         this.data = data;
         this.id_funcionario = id_funcionario;
         this.id_edicao = id_edicao;
     }
+
+   
 
     public int getIdvenda() {
         return idvenda;
