@@ -5,6 +5,8 @@
  */
 package livraria;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Ariel
