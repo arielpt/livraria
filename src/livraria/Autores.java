@@ -13,11 +13,13 @@ public class Autores {
     private String nota;
     private String nome;
     private Calendar data;
+    private int id;
 
-    public Autores(String nome, Calendar data, String nota) {
+    public Autores(String nome, Calendar data, String nota, int id) {
         this.nota = nota;
         this.nome = nome;
         this.data = data;
+        this.id = id;
     }
 
     public String getNota() {
@@ -42,6 +44,14 @@ public class Autores {
 
     public void setData(Calendar data) {
         this.data = data;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

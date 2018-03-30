@@ -12,10 +12,12 @@ package livraria;
 public class Editoras {
     private String nome;
     private int telefone;
+    private int id;
 
-    public Editoras(String nome, int telefone) {
+    public Editoras(String nome, int telefone, int id) {
         this.nome = nome;
         this.telefone = telefone;
+        this.id = id;
     }
 
     public String getNome() {
@@ -32,6 +34,14 @@ public class Editoras {
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 }
