@@ -10,16 +10,18 @@ package livraria;
  * @author ADM
  */
 public class Edicao{
+    private int ISBN;
     private int numero;
     private int paginas;
     private int estoque;
     private double valor;
 
-    public Edicao(int numero, int paginas, int estoque, double valor) {
+    public Edicao(int numero, int paginas, int estoque, double valor, int ISBN) {
         this.numero = numero;
         this.paginas = paginas;
         this.estoque = estoque;
         this.valor = valor;
+        this.ISBN = ISBN;
     }
 
     public int getNumero() {
@@ -52,6 +54,14 @@ public class Edicao{
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public int getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(int ISBN) {
+        this.ISBN = ISBN;
     }
     
 }
