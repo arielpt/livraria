@@ -18,6 +18,10 @@ public class Ficcao extends Livro {
         this.genero = genero;
     }
 
+    public Ficcao() {
+
+    }
+
     public String getGenero() {
         return genero;
     }
