@@ -14,7 +14,7 @@ import java.sql.SQLException;
  *
  * @author ADM
  */
-public class TecnicoDAO {
+public class FiccaoDAO {
 
     public void create(Ficcao ficcao) {
         TransactionManager txManager = new TransactionManager();
