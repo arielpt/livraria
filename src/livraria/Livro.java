@@ -24,6 +24,9 @@ public abstract class Livro {
         this.id = id;
     }
 
+    public Livro() {
+    }
+
     public int getCodigo() {
         return codigo;
     }
