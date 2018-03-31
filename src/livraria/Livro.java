@@ -14,12 +14,14 @@ public abstract class Livro {
     private int ano;
     private String titulo;
     private String idioma;
+    private int id;
 
-    public Livro(int codigo, int ano, String titulo, String idioma, String tipo) {
+    public Livro(int codigo, int ano, String titulo, String idioma, String tipo, int id) {
         this.codigo = codigo;
         this.ano = ano;
         this.titulo = titulo;
         this.idioma = idioma;
+        this.id = id;
     }
 
     public int getCodigo() {
@@ -54,7 +56,17 @@ public abstract class Livro {
         this.idioma = idioma;
     }
 
-    @Override
+   
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+     @Override
     public String toString() {
         return "Codigo:" + getCodigo() + "\nAno:" + getAno() + "\nTitulo:" + getTitulo() + "\nIdioma:" + getIdioma() + "\n";
     }

@@ -10,10 +10,11 @@ package livraria;
  * @author ADM
  */
 public class Ficcao extends Livro {
+
     private String genero;
 
-    public Ficcao(int codigo, int ano, String titulo, String idioma, String tipo, String genero) {
-        super(codigo, ano, titulo, idioma, tipo);
+    public Ficcao(String genero, int codigo, int ano, String titulo, String idioma, String tipo, int id) {
+        super(codigo, ano, titulo, idioma, tipo, id);
         this.genero = genero;
     }
 
@@ -24,5 +25,5 @@ public class Ficcao extends Livro {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
+
 }

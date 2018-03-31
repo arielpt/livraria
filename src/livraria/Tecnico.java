@@ -10,10 +10,11 @@ package livraria;
  * @author ADM
  */
 public class Tecnico extends Livro {
+
     private String area;
 
-    public Tecnico(int codigo, int ano, String titulo, String idioma, String tipo, String area) {
-        super(codigo, ano, titulo, idioma, tipo);
+    public Tecnico(String area, int codigo, int ano, String titulo, String idioma, String tipo, int id) {
+        super(codigo, ano, titulo, idioma, tipo, id);
         this.area = area;
     }
 
@@ -24,5 +25,5 @@ public class Tecnico extends Livro {
     public void setArea(String area) {
         this.area = area;
     }
-    
+
 }
