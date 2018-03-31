@@ -13,8 +13,8 @@ public class Ficcao extends Livro {
 
     private String genero;
 
-    public Ficcao(String genero, int codigo, int ano, String titulo, String idioma, String tipo, int id) {
-        super(codigo, ano, titulo, idioma, tipo, id);
+    public Ficcao(String genero, int codigo, int ano, String titulo, String idioma, int id) {
+        super(codigo, ano, titulo, idioma, id);
         this.genero = genero;
     }
 

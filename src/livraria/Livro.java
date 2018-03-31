@@ -16,7 +16,7 @@ public abstract class Livro {
     private String idioma;
     private int id;
 
-    public Livro(int codigo, int ano, String titulo, String idioma, String tipo, int id) {
+    public Livro(int codigo, int ano, String titulo, String idioma, int id) {
         this.codigo = codigo;
         this.ano = ano;
         this.titulo = titulo;

@@ -13,8 +13,8 @@ public class Tecnico extends Livro {
 
     private String area;
 
-    public Tecnico(String area, int codigo, int ano, String titulo, String idioma, String tipo, int id) {
-        super(codigo, ano, titulo, idioma, tipo, id);
+    public Tecnico(String area, int codigo, int ano, String titulo, String idioma,  int id) {
+        super(codigo, ano, titulo, idioma, id);
         this.area = area;
     }
 
