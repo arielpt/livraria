@@ -30,7 +30,7 @@ public class TecnicoDAO {
                 int id = 0;
 
                 if (rs.next()) {
-                    id = rs.getInt("max");
+                     id = rs.getInt("max") + 1;
                 } else {
                     id = 1;
                 }
