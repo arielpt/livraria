@@ -1,7 +1,7 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package livraria;
 
@@ -69,8 +69,57 @@ public class TecnicoDAO {
                 stmt1.execute();
 
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
-                stmt2.setString(1, tecnico.getArea())
-            
-        
-    
-;
+                stmt2.setString(1, tecnico.getArea());
+                stmt2.setInt(2, tecnico.getId());
+                stmt1.execute();
+            }
+        });
+    }
+
+    public void delete(Tecnico tecnico) {
+        TransactionManager txManager = new TransactionManager();
+        txManager.doInTransaction(new TransactionCallback() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                String sql1 = "DELETE FROM tecnicos WHERE id = ?",
+                        sql2 = "DELETE FROM livro WHERE id = ?";
+
+                PreparedStatement stmt1 = connection.prepareStatement(sql1);
+                stmt1.setInt(1, tecnico.getId());
+                stmt1.execute();
+
+                PreparedStatement stmt2 = connection.prepareStatement(sql2);
+                stmt2.setInt(1, tecnico.getId());
+                stmt1.execute();
+            }
+        });
+    }
+
+    public Tecnico getTecnicoByCodigo(int codigo) {
+        final Tecnico tecnico = new Tecnico();
+        TransactionManager txManager = new TransactionManager();
+        txManager.doInTransaction(new TransactionCallback() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                String sql1 = "SELECT l.id, l.livrocod, l.titulo, l.idioma,"
+                        + "l.ano, t.area from livro l inner join tecnicos t"
+                        + "on t.id = l.id WHERE l.id = ?";
+
+                ResultSet rs = null;
+                PreparedStatement stmt1 = connection.prepareStatement(sql1);
+                stmt1.setInt(1, codigo);
+                rs = stmt1.executeQuery();
+
+                if (rs.next()) {
+                    tecnico.setId(rs.getInt(1));
+                    tecnico.setCodigo(rs.getInt(2));
+                    tecnico.setTitulo(rs.getString(3));
+                    tecnico.setIdioma(rs.getString(4));
+                    tecnico.setAno(rs.getInt(5));
+                    tecnico.setArea(rs.getString(6));
+                }
+            }
+        });
+        return tecnico;
+    }
+}
