@@ -102,7 +102,7 @@ public class TecnicoDAO {
             @Override
             public void execute(Connection connection) throws SQLException {
                 String sql1 = "SELECT l.id, l.livrocod, l.titulo, l.idioma,"
-                        + "l.ano, t.area from livro l inner join tecnicos t"
+                        + "l.ano, t.genero from livro l inner join ficcao t"
                         + "on t.id = l.id WHERE l.id = ?";
 
                 ResultSet rs = null;
