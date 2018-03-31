@@ -116,7 +116,7 @@ public class FiccaoDAO {
                     ficcao.setTitulo(rs.getString(3));
                     ficcao.setIdioma(rs.getString(4));
                     ficcao.setAno(rs.getInt(5));
-                    ficcao.setGENERO(rs.getString(6));
+                    ficcao.setGenero(rs.getString(6));
                 }
             }
         });
