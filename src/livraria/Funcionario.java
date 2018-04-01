@@ -9,17 +9,21 @@ package livraria;
  *
  * @author Ariel
  */
-public class funcionario {
+public class Funcionario {
     private int id;
     private String nome;
     private int matricula;
     private String funcao;
 
-    public funcionario(int id, String nome, int matricula, String funcao) {
+    public Funcionario(int id, String nome, int matricula, String funcao) {
         this.id = id;
         this.nome = nome;
         this.matricula = matricula;
         this.funcao = funcao;
+    }
+
+    Funcionario() {
+        
     }
 
     public int getId() {

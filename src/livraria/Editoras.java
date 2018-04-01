@@ -20,6 +20,9 @@ public class Editoras {
         this.id = id;
     }
 
+    Editoras() {
+         }
+
     public String getNome() {
         return nome;
     }

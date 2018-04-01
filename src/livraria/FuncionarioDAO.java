@@ -14,112 +14,99 @@ import java.sql.SQLException;
  *
  * @author ADM
  */
-public class FiccaoDAO {
+public class FuncionarioDAO {
 
-    public void create(Ficcao ficcao) {
+    public void create(Funcionario funcionario) {
         TransactionManager txManager = new TransactionManager();
         txManager.doInTransaction(new TransactionCallback() {
             @Override
             public void execute(Connection connection) throws SQLException {
-                String sql1 = "SELECT max(id) from livro",
-                        sql2 = "INSERT INTO livro values(?,?,?,?,?)",
-                        sql3 = "INSERT INTO ficcao values (?,?)";
+                String sql1 = "SELECT MAX(id) from funcionario",
+                        sql2 = "INSERT INTO funcionario values(?,?,?,?)";
 
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
                 ResultSet rs = stmt1.executeQuery();
                 int id = 0;
 
                 if (rs.next()) {
-                     id = rs.getInt("max") + 1;
+                    id = rs.getInt("max") + 1;
                 } else {
                     id = 1;
                 }
 
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
                 stmt2.setInt(1, id);
-                stmt2.setInt(2, ficcao.getCodigo());
-                stmt2.setInt(3, ficcao.getAno());
-                stmt2.setString(4, ficcao.getTitulo());
-                stmt2.setString(5, ficcao.getIdioma());
+                stmt2.setString(2, funcionario.getNome());
+                stmt2.setInt(3, funcionario.getMatricula());
+                stmt1.setString(4, funcionario.getFuncao());
                 stmt2.execute();
 
-                PreparedStatement stmt3 = connection.prepareStatement(sql3);
-                stmt3.setInt(1, id);
-                stmt3.setString(2, ficcao.getGenero());
-                stmt3.execute();
             }
         });
     }
 
-    public void update(Ficcao ficcao) {
+
+    public void update(Funcionario funcionario) {
         TransactionManager txManager = new TransactionManager();
         txManager.doInTransaction(new TransactionCallback() {
             @Override
             public void execute(Connection connection) throws SQLException {
-                String sql1 = "UPDATE livro SET livrocod = ?, titulo = ?,"
-                        + " idioma = ?, ano = ? WHERE id = ?",
-                        sql2 = "UPDATE ficcao SET genero = ? WHERE id = ?";
+                String sql1 = "UPDATE funcionario SET id = ?, nome = ?,"
+                        + " matricula = ?, funcao = ? WHERE id = ?",
+                        sql2 = "UPDATE funcionario SET funcionario = ? WHERE id = ?";
 
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
-                stmt1.setInt(1, ficcao.getCodigo());
-                stmt1.setString(2, ficcao.getTitulo());
-                stmt1.setString(3, ficcao.getIdioma());
-                stmt1.setInt(4, ficcao.getAno());
-                stmt1.setInt(5, ficcao.getId());
+                stmt1.setInt(1, funcionario.getId());
+                stmt1.setString(2, funcionario.getNome());
+                stmt1.setInt(3, funcionario.getMatricula());
+                stmt1.setString(4, funcionario.getFuncao());
+                stmt1.execute();
+
+               
+            }
+        });
+    }
+
+    public void delete(Funcionario funcionario) {
+        TransactionManager txManager = new TransactionManager();
+        txManager.doInTransaction(new TransactionCallback() {
+            @Override
+            public void execute(Connection connection) throws SQLException {
+                String sql1 = "DELETE FROM funcionario WHERE id = ?",
+                        sql2 = "DELETE FROM funcionario WHERE id = ?";
+
+                PreparedStatement stmt1 = connection.prepareStatement(sql1);
+                stmt1.setInt(1, funcionario.getId());
                 stmt1.execute();
 
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
-                stmt2.setString(1, ficcao.getGenero());
-                stmt2.setInt(2, ficcao.getId());
+                stmt2.setInt(1, funcionario.getId());
                 stmt1.execute();
             }
         });
     }
 
-    public void delete(Ficcao ficcao) {
+    public Funcionario getFuncionarioById(int id) {
+        final Funcionario funcionario = new Funcionario();
         TransactionManager txManager = new TransactionManager();
         txManager.doInTransaction(new TransactionCallback() {
             @Override
             public void execute(Connection connection) throws SQLException {
-                String sql1 = "DELETE FROM ficcao WHERE id = ?",
-                        sql2 = "DELETE FROM livro WHERE id = ?";
-
-                PreparedStatement stmt1 = connection.prepareStatement(sql1);
-                stmt1.setInt(1, ficcao.getId());
-                stmt1.execute();
-
-                PreparedStatement stmt2 = connection.prepareStatement(sql2);
-                stmt2.setInt(1, ficcao.getId());
-                stmt1.execute();
-            }
-        });
-    }
-
-    public Ficcao getFiccaoByCodigo(int codigo) {
-        final Ficcao ficcao = new Ficcao();
-        TransactionManager txManager = new TransactionManager();
-        txManager.doInTransaction(new TransactionCallback() {
-            @Override
-            public void execute(Connection connection) throws SQLException {
-                String sql1 = "SELECT l.id, l.livrocod, l.titulo, l.idioma,"
-                        + "l.ano, f.genero from livro l inner join ficcao f"
+                String sql1 = "SELECT l.id, l.nome, l.matricula, l.funcao,"
                         + "on t.id = l.id WHERE l.id = ?";
 
                 ResultSet rs = null;
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
-                stmt1.setInt(1, codigo);
+                stmt1.setInt(1, id);
                 rs = stmt1.executeQuery();
 
                 if (rs.next()) {
-                    ficcao.setId(rs.getInt(1));
-                    ficcao.setCodigo(rs.getInt(2));
-                    ficcao.setTitulo(rs.getString(3));
-                    ficcao.setIdioma(rs.getString(4));
-                    ficcao.setAno(rs.getInt(5));
-                    ficcao.setGenero(rs.getString(6));
+                    funcionario.setId(rs.getInt(1));
+                    funcionario.setMatricula(rs.getInt(2));
+                    funcionario.setFuncao(rs.getString(3));
                 }
             }
         });
-        return ficcao;
+        return funcionario;
     }
 }
