@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package livraria;
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author Ariel
  */
 public class Venda{
     private int idvenda;
-    private Calendar data;
+    private Date data;
     private int id_funcionario;
     private int id_edicao;
 
-    public Venda(int idvenda, Calendar data, int id_funcionario, int id_edicao) {
+    public Venda(int idvenda, Date data, int id_funcionario, int id_edicao) {
         this.idvenda = idvenda;
         this.data = data;
         this.id_funcionario = id_funcionario;
@@ -34,11 +33,11 @@ public class Venda{
         this.idvenda = idvenda;
     }
 
-    public Calendar getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

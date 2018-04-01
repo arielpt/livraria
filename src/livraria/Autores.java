@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package livraria;
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author ADM
@@ -13,10 +12,10 @@ import java.util.Date;
 public class Autores {
     private String nota;
     private String nome;
-    private Calendar data;
+    private Date data;
     private int id;
 
-    public Autores(String nome, Calendar data, String nota, int id) {
+    public Autores(String nome, Date data, String nota, int id) {
         this.nota = nota;
         this.nome = nome;
         this.data = data;
@@ -44,11 +43,11 @@ public class Autores {
         this.nome = nome;
     }
 
-    public Calendar getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

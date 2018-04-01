@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package livraria;
-import java.util.GregorianCalendar;
+import java.sql.Date;
 /**
  *
  * @author ADM
@@ -16,31 +16,31 @@ public class Livraria {
      */
     public static void main(String[] args) {
        Tecnico t = new Tecnico("Advocacia", 125446841, 2018, "Lei para tolos", "Portugues", 1);
-       new TecnicoDAO().create(t);
+       new TecnicoDAO().delete(t);
        
-       Autores a = new Autores("Um autor brilhante",new GregorianCalendar(1998,11,19), "Harlan Coben",  1);
-       new AutoresDAO().create(a);
+       Autores a = new Autores("Um autor brilhante",new Date(1998,11,19), "Harlan Coben",  1);
+       new AutoresDAO().delete(a);
        
        livro_autor l = new livro_autor(1,1);
-       new livro_autorDAO().create(l);
+       new livro_autorDAO().delete(l);
        
        Editoras e = new Editoras("Saraiva", 1139334000, 1);
-       new EditorasDAO().create(e);
+       new EditorasDAO().delete(e);
        
        Edicao d = new Edicao(1, 1039, 105, 29.50, 1);
-       new EdicaoDAO().create(d);
+       new EdicaoDAO().delete(d);
        
        edicao_editora i = new edicao_editora(1,1);
-       new edicao_editoraDAO().create(i);
+       new edicao_editoraDAO().delete(i);
        
        livro_edicao v = new livro_edicao(1,1);
-       new livro_edicaoDAO().create(v);
+       new livro_edicaoDAO().delete(v);
        
        Funcionario f = new Funcionario(1, "Ariel", 201314, "Operador de Caixa");
-       new FuncionarioDAO().create(f);
+       new FuncionarioDAO().delete(f);
        
-       Venda n = new Venda(1, new GregorianCalendar(2018,04,01), 1, 1);
-       new VendaDAO().create(n);
+       Venda n = new Venda(1, new Date(2018,04,01), 1, 1);
+       new VendaDAO().delete(n);
        
     }
     

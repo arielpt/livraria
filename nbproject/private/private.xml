@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/Tecnico.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/ConnectionFactory.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/TransactionManager.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/Livro.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/Ficcao.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/TransactionCallback.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/FiccaoDAO.java</file>
-            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/TecnicoDAO.java</file>
+            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/AutoresDAO.java</file>
+            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/VendaDAO.java</file>
+            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/Livraria.java</file>
+            <file>file:/C:/Users/Ariel/Desktop/Biblioteca/GIT/livraria/src/livraria/Venda.java</file>
         </group>
     </open-files>
 </project-private>

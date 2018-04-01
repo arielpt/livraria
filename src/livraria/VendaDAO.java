@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
 import java.sql.Date;
 
 /**
@@ -23,8 +22,8 @@ public class VendaDAO {
         txManager.doInTransaction(new TransactionCallback() {
             @Override
             public void execute(Connection connection) throws SQLException {
-                String sql1 = "SELECT MAX(idvenda) from venda";
-
+                String sql1 = "SELECT MAX(idvenda) from venda",
+                sql2 = "INSERT INTO venda values(?,?,?,?)";
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
                 ResultSet rs = stmt1.executeQuery();
                 int idvenda = 0;
@@ -35,9 +34,9 @@ public class VendaDAO {
                     idvenda = 1;
                 }
 
-                PreparedStatement stmt2 = connection.prepareStatement(sql1);
+                PreparedStatement stmt2 = connection.prepareStatement(sql2);
                 stmt2.setInt(1, idvenda);
-                stmt2.setDate(2, (java.sql.Date) (Date) venda.getData().getTime());
+                stmt2.setDate(2, venda.getData());
                 stmt2.setInt(3, venda.getId_funcionario());
                 stmt2.setInt(4, venda.getId_edicao());
                 stmt2.execute();
@@ -52,15 +51,15 @@ public class VendaDAO {
         txManager.doInTransaction(new TransactionCallback() {
             @Override
             public void execute(Connection connection) throws SQLException {
-                String sql1 = "UPDATE venda SET idvenda = ?, data = ?,"
+                String sql1 = "UPDATE venda SET data = ?,"
                         + " id_funcionario = ?, id_edicao = ? WHERE id = ?",
                         sql2 = "UPDATE venda SET venda = ? WHERE id = ?";
 
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
-                stmt1.setInt(1, venda.getIdvenda());
-                stmt1.setDate(2, (java.sql.Date) (Date) venda.getData().getTime());
-                stmt1.setInt(3, venda.getId_funcionario());
-                stmt1.setInt(4, venda.getId_edicao());
+                stmt1.setDate(1,venda.getData());
+                stmt1.setInt(2, venda.getId_funcionario());
+                stmt1.setInt(3, venda.getId_edicao());
+                stmt1.setInt(4, venda.getIdvenda());
                 stmt1.execute();
 
                
@@ -97,10 +96,10 @@ public class VendaDAO {
                 rs = stmt1.executeQuery();
 
                 if (rs.next()) {
-                    venda.setIdvenda(rs.getInt(1));
-                    venda.setDate(2, (Date) venda.getData().getTime());
-                    venda.setId_funcionario(rs.getInt(3));
-                    venda.setId_edicao(rs.getInt(4));
+                    venda.setDate(1,venda.getData());
+                    venda.setId_funcionario(rs.getInt(1));
+                    venda.setId_edicao(rs.getInt(2));
+                    venda.setIdvenda(rs.getInt(4));
                 }
             }
         });

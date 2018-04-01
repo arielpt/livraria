@@ -38,9 +38,9 @@ public class TecnicoDAO {
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
                 stmt2.setInt(1, id);
                 stmt2.setInt(2, tecnico.getCodigo());
-                stmt2.setInt(3, tecnico.getAno());
-                stmt2.setString(4, tecnico.getTitulo());
-                stmt2.setString(5, tecnico.getIdioma());
+                stmt2.setString(3, tecnico.getTitulo());
+                stmt2.setString(4, tecnico.getIdioma());
+                stmt2.setInt(5, tecnico.getAno());
                 stmt2.execute();
 
                 PreparedStatement stmt3 = connection.prepareStatement(sql3);

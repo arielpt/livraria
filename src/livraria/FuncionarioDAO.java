@@ -38,7 +38,7 @@ public class FuncionarioDAO {
                 stmt2.setInt(1, id);
                 stmt2.setString(2, funcionario.getNome());
                 stmt2.setInt(3, funcionario.getMatricula());
-                stmt1.setString(4, funcionario.getFuncao());
+                stmt2.setString(4, funcionario.getFuncao());
                 stmt2.execute();
 
             }
