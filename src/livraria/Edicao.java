@@ -24,6 +24,10 @@ public class Edicao{
         this.ISBN = ISBN;
     }
 
+    Edicao() {
+       
+    }
+
     public int getNumero() {
         return numero;
     }
