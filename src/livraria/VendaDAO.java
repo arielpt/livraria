@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -37,7 +38,7 @@ public class VendaDAO {
 
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
                 stmt2.setInt(1, id);
-                stmt2.setCalendar(2, venda.getData().getTime());
+                stmt2.setDate(2, (Date) venda.getData().getTime());
                 stmt2.setInt(3, venda.getId_funcionario());
                 stmt1.setInt(4, venda.getId_edicao());
                 stmt2.execute();
@@ -58,7 +59,7 @@ public class VendaDAO {
 
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
                 stmt1.setInt(1, venda.getId());
-                stmt1.setCalendar(2, venda.getData() .getTime());
+                stmt1.setDate(2, (Date) venda.getData().getTime());
                 stmt1.setInt(3, venda.getId_funcionario());
                 stmt1.setInt(4, venda.getId_edicao());
                 stmt1.execute();
@@ -98,7 +99,7 @@ public class VendaDAO {
 
                 if (rs.next()) {
                     venda.setId(rs.getInt(1));
-                    venda.setData(rs.getCalendar(2));
+                    setDate(2, (Date) venda.getData().getTime());
                     venda.setId_funcionario(rs.getInt(3));
                     venda.setId_edicao(rs.getInt(4));
                 }
