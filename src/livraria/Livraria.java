@@ -16,6 +16,7 @@ public class Livraria {
      */
     public static void main(String[] args) {
        Tecnico t = new Tecnico("Advocacia", 125446841, 2018, "Lei para tolos", "Portugues", 1);
+       new TecnicoDao.create(t);
     }
     
 }
