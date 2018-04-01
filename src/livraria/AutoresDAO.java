@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author ADM
@@ -38,7 +38,7 @@ public class AutoresDAO {
                 PreparedStatement stmt2 = connection.prepareStatement(sql2);
                 stmt2.setString(1, autores.getNota());
                 stmt2.setString(2, autores.getNome());
-                stmt2.setDate(3, (Date) autores.getData().getTime());
+                stmt2.setDate(3, (java.sql.Date) (Date) autores.getData().getTime());
                 stmt1.setInt(4, autores.getId());
                 stmt2.execute();
 
@@ -58,7 +58,7 @@ public class AutoresDAO {
                 PreparedStatement stmt1 = connection.prepareStatement(sql1);
                 stmt1.setString(1, autores.getNota());
                 stmt1.setString(2, autores.getNome());
-                stmt2.setDate(3, (Date) autores.getData().getTime());
+                stmt1.setDate(3, (java.sql.Date) (Date) autores.getData().getTime());
                 stmt1.setInt(4, autores.getId());
                 stmt1.execute();
 
@@ -82,7 +82,7 @@ public class AutoresDAO {
     }
 
     public Autores getAutoresById(int id) {
-        final Autores autores = new autores();
+        final Autores autores = new Autores();
         TransactionManager txManager = new TransactionManager();
         txManager.doInTransaction(new TransactionCallback() {
             @Override

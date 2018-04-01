@@ -5,6 +5,7 @@
  */
 package livraria;
 import java.util.Calendar;
+import java.util.Date;
 /**
  *
  * @author ADM
@@ -21,6 +22,11 @@ public class Autores {
         this.data = data;
         this.id = id;
     }
+
+    public Autores() {
+    }
+    
+    
 
     public String getNota() {
         return nota;
@@ -52,6 +58,10 @@ public class Autores {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    void setDate(int i, Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -5,6 +5,7 @@
  */
 package livraria;
 import java.util.Calendar;
+import java.util.Date;
 /**
  *
  * @author Ariel
@@ -55,6 +56,10 @@ public class Venda{
 
     public void setId_edicao(int id_edicao) {
         this.id_edicao = id_edicao;
+    }
+
+    void setDate(int i, Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
